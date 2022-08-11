@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Customer from '../components/customer'
+import CustomerForm from '../components/form'
 
 export default function Home() {
   return (
@@ -10,7 +12,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}></main>
+      <main className={styles.main}>
+        <Customer
+          firstName="Tim"
+          lastName="Dustow"
+          email="timdustow@gmail.com"
+          balance={4.5}
+        />
+        <CustomerForm />
+      </main>
 
       <footer className={styles.footer}></footer>
     </div>

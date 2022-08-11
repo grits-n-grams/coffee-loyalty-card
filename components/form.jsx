@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function CustomerForm() {
   const [firstName, setFirstName] = useState('')
@@ -22,6 +23,7 @@ export default function CustomerForm() {
         headers: { 'Content-Type': 'application/JSON' },
         body: JSON.stringify(body),
       })
+      toast.success('Customer has been added!')
     } catch (error) {
       console.log(error)
     }
@@ -55,6 +57,7 @@ export default function CustomerForm() {
         />
 
         <button onClick={resetInputs}>Add Customer</button>
+        <Toaster />
       </form>
     </>
   )

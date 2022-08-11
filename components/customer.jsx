@@ -1,10 +1,14 @@
 export default function Customer(props) {
   return (
-    <>
-      <p>{props.firstName}</p>
-      <p>{props.lastName}</p>
-      <p>{props.email}</p>
-      <p>{props.balance}</p>
-    </>
+    <tbody>
+      <tr>
+        <th>| {props.id}</th>
+        <th>| {props.firstName}</th>
+        <th>| {props.lastName}</th>
+        <th>| {props.email}</th>
+        <th>| {props.balance}</th>
+        <th>| {props.loyalty}</th>
+      </tr>
+    </tbody>
   )
 }

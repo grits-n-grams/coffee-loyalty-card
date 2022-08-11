@@ -10,10 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model customer {
+model Customer {
   id Int @id @default(autoincrement())
   firstName String
   lastName String
   email String
-  balance Decimal
+  balance Decimal @default(0)
+  loyalty Int @default(0)
+
+  @@map(name: "customers")
 }

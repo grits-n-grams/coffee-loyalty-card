@@ -4,10 +4,31 @@ export default function CustomerForm() {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
-  const [balance, setbalance] = useState(0)
+
+  const resetInputs = () => {
+    setTimeout(() => {
+      setFirstName('')
+      setLastName('')
+      setEmail('')
+    }, 2000)
+  }
+
+  const submitHandler = async (e) => {
+    e.preventDefault()
+    try {
+      const body = { firstName, lastName, email }
+      await fetch('api/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/JSON' },
+        body: JSON.stringify(body),
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <>
-      <form action="submit">
+      <form action="submit" onSubmit={submitHandler}>
         <input
           type="text"
           value={firstName}
@@ -33,7 +54,7 @@ export default function CustomerForm() {
           placeholder="Email"
         />
 
-        <button>Add Customer</button>
+        <button onClick={resetInputs}>Add Customer</button>
       </form>
     </>
   )

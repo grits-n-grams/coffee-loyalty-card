@@ -11,6 +11,14 @@ a {
   text-decoration: none;
 }
 
+button {
+  margin: 1rem;
+}
+
+input {
+  margin: 1rem;
+}
+
 * {
   box-sizing: border-box;
 }

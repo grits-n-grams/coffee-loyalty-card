@@ -17,6 +17,15 @@ model Customer {
   email String
   balance Decimal @default(0)
   loyalty Int @default(0)
+  transactions Transaction[]
 
   @@map(name: "customers")
+}
+
+model Transaction {
+  transaction_id Int @id @default(autoincrement())
+  customer Customer @relation(fields: [customer_id], references: [id])
+  customer_id Int
+  amount Decimal
+  loyalty_gained Int
 }

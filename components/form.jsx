@@ -11,7 +11,7 @@ export default function CustomerForm() {
       setFirstName('')
       setLastName('')
       setEmail('')
-    }, 2000)
+    }, 1000)
   }
 
   const submitHandler = async (e) => {

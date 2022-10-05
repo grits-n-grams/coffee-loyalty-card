@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Customer from '../components/customer'
+import CustomerCard from '../components/customerCard'
 import CustomerForm from '../components/form'
 import useSWR from 'swr'
 
@@ -19,11 +19,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <table>
+      <main className="">
+      <CustomerForm />
+        <div>
           {data &&
             data.map(({ id, firstName, lastName, email, balance, loyalty }) => (
-              <Customer
+              <CustomerCard
                 key={id}
                 id={id}
                 firstName={firstName}
@@ -31,10 +32,11 @@ export default function Home() {
                 email={email}
                 balance={balance}
                 loyalty={loyalty}
+                className="mb-4"
               />
             ))}
-        </table>
-        <CustomerForm />
+        </div>
+        
       </main>
 
       <footer className={styles.footer}></footer>

@@ -1,6 +1,6 @@
 import useSWR from "swr"
 import CustomerCard from "../../components/customerCard"
-export default function customerSearch() {
+export default function CustomerSearch() {
 
   const fetcher = (url) => fetch(url).then((res) => res.json())
 
